@@ -12,15 +12,20 @@ function App() {
     const newBookmarks = [...bookmarks, blog];
     setBookmarks(newBookmarks);
   };
-  const handleMarkAsRead = (time) => {
+  const handleMarkAsRead = (id, time) => {
     const newReadingTime = readingTime + time;
     setReadingTime(newReadingTime);
+
+    const remainingBookmark = bookmarks.filter(
+      (bookmark) => bookmark.id !== id
+    );
+    setBookmarks(remainingBookmark);
   };
 
   return (
-    <div>
+    <div className="md:container mx-auto">
       <Navbar></Navbar>
-      <div className="md:flex max-w-6xl">
+      <div className="md:flex max-w-8xl">
         <Blogs
           handleAddToBookmark={handleAddToBookmark}
           handleMarkAsRead={handleMarkAsRead}

@@ -1,6 +1,8 @@
 import { CiBookmark } from "react-icons/ci";
-const Blog = ({ blog, handleAddBookmark, handleMarkAsRead }) => {
+
+const Blog = ({ blog, handleAddToBookmark, handleMarkAsRead }) => {
   const {
+    id,
     cover,
     title,
     reading_time,
@@ -11,11 +13,10 @@ const Blog = ({ blog, handleAddBookmark, handleMarkAsRead }) => {
   } = blog;
 
   return (
-    <div className="mb-20  space-y-4">
+    <div className="mb-20 space-y-4">
       <img className="w-full mb-8" src={cover} alt={title} />
       <div className="flex justify-between mb-4">
         <div className="flex">
-          {" "}
           <img className="w-14 rounded-full" src={author_img} alt="" />
           <div className="ml-6">
             <h3 className="text-2xl">{author}</h3>
@@ -25,10 +26,10 @@ const Blog = ({ blog, handleAddBookmark, handleMarkAsRead }) => {
         <div className="flex items-center">
           <span>{reading_time} min read</span>
           <button
-            onclick={() => handleAddBookmark(blog)}
+            onClick={() => handleAddToBookmark(blog)}
             className="ml-2 text-2xl"
           >
-            <CiBookmark></CiBookmark>
+            <CiBookmark />
           </button>
         </div>
       </div>
@@ -43,7 +44,7 @@ const Blog = ({ blog, handleAddBookmark, handleMarkAsRead }) => {
         ))}
       </p>
       <button
-        onclick={() => handleMarkAsRead(reading_time)}
+        onClick={() => handleMarkAsRead(id, reading_time)}
         className="text-purple-800 font-bold underline"
       >
         Mark As Read
