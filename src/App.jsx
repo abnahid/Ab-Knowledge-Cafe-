@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="md:container mx-auto">
       <Navbar></Navbar>
-      <div className="md:flex max-w-8xl">
+      <div className="md:flex max-w-8xl m-8">
         <Blogs
           handleAddToBookmark={handleAddToBookmark}
           handleMarkAsRead={handleMarkAsRead}

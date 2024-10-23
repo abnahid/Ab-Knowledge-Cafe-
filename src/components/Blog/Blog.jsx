@@ -38,7 +38,7 @@ const Blog = ({ blog, handleAddToBookmark, handleMarkAsRead }) => {
         {hashtag.map((hash, idx) => (
           <span key={idx}>
             <a href="" className="ml-4">
-              {hash}
+              #{hash}
             </a>
           </span>
         ))}
